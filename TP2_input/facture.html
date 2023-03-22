@@ -1,0 +1,89 @@
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<script type="text/javascript" src="code.js"></script>
+	</head>
+	<body>
+		<div class="header">
+		  <h1>Facture</h1>
+		  <p>Bienvenue chez Nous.</p>
+		</div>
+		<div class="topnav">
+		  <a href="#">Link</a>
+		  <a href="#">Link</a>
+		  <a href="#">Link</a>
+		</div>
+		<div class="row">
+			<div class="column side">
+				<h2>Fournisseur</h2>
+				<form action="#" method="post">
+					<fieldset>
+						<legend> Fournisseur : ? </legend>
+						<select>
+						  <option value="f1">Fournisseur 1</option>
+						  <option value="f2">Fournisseur 2</option>
+						  <option value="f3">Fournisseur 3</option>
+						  <option value="f4">Fournisseur 4</option>
+						</select>
+					</fieldset>
+				</form>
+			</div>
+			<div class="column middle">
+				<h2>Formulaire</h2>
+				<form action="#" method="post" onsubmit="return mfValidation(this)">
+					<fieldset>
+						<legend> Information  : ? </legend>
+						<input type="radio" name="type" value="perso" onclick="personnel()"> Personnel&nbsp;&nbsp;
+						<input type="radio" name="type" value="prof" onclick="professionel()"> Professionel<br>
+						<br>
+						<div id="tva">
+						N° TVA:<br>
+							<input type="text" name="tva"><br><br>
+						</div>
+						Prénom :<br>
+							<input type="text" name="firstname"><br><br>
+						Nom :<br>
+							<input type="text" name="lastname">
+						<br><br>
+						<div id="gender">
+						</div>
+						Email :<br>
+							<input type="text" name="mail">
+						<br><br>
+						N° Téléphone :<br>
+							<input type="text" name="phone">
+						<br><br>
+						Adresse :<br>
+							<input type="textarea" name="adresse">
+						<br><br>
+						Provinces :<br>
+							<select name="region" id="region" onchange="ville()">
+							  <option value="">....</option>
+							  <option value="f2">Hainaut</option>
+							  <option value="f3">Brabant Wallon</option>
+							  <option value="f4">Liège</option>
+							  <option value="f5">Namur</option>
+							</select>
+						<br><br>
+						Ville :<br>
+							<div id="ville">
+								<input type="text" name="Ville">
+							</div>
+						<br><br>
+						Code postale :<br>
+							<div id="code">
+								<input type="text" name="code">
+							</div>
+						<br><br>
+							
+						<br>
+							<input type="submit"><input type="reset">
+					</fieldset>
+				</form>
+			</div>
+
+		</div>
+
+	</body>
+<html>
