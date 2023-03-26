@@ -83,24 +83,31 @@ function postale (){
 
 	if (ville == "Mons") {
 		document.getElementById("code").innerHTML = "<select name='code' id='code' > <option>7000</option><option>7001</option><option>7002</option></select>";
+		return true;
 	}
 	if (ville == "Charleroi") {
 		document.getElementById("code").innerHTML = "<select name='code' id='code' > <option>6000</option><option>6001</option><option>6002</option></select>";
+		return true;
 	}
 	if (ville == "Bornival") {
 		document.getElementById("code").innerHTML = "<select name='code' id='code' > <option>1404</select>";
+		return true;
 	}
 	if (ville = "Liège") {
 		document.getElementById("code").innerHTML = "<select name='code' id='code' > <option>4000</option><option>4001</option><option>4002</option></select>";
+		return true;
 	}
 	if (ville ="Huy"){
 		document.getElementById("code").innerHTML = "<select name='code' id='code' > <option>4500</option><option>4501</option><option>4502</option></select>";
+		return true;
 	}
 	if (ville =="Namur"){
 		document.getElementById("code").innerHTML = "<select name='code' id='code' > <option>5000</option><option>5001</option><option>5002</option></select>";
+		return true;
 	}
 	if (ville =="Dinant"){
 		document.getElementById("code").innerHTML = "<select name='code' id='code' > <option>5500</option><option>5501</option><option>5502</option></select>";
+		return true;
 	}
 
 }
@@ -110,19 +117,31 @@ function ville() {
 
 	console.log(region);
 	if (region == "f2") {
-		document.getElementById("ville").innerHTML = "<select name='ville2' id='ville2' onchange='postale()'> <option>Mons</option><option>Charleroi</option></select>";
+		document.getElementById("ville").innerHTML = "<select name='ville2' id='ville2' onchange='postale()'> <option>...</option><option>Mons</option><option>Charleroi</option></select>";
 		return true;
 	}
 	if (region == "f3") {
-		document.getElementById("ville").innerHTML = "<select name='ville2' id='ville2' onchange='postale()'> <option>Archennes</option><option>Bornival</option></select>";
+		document.getElementById("ville").innerHTML = "<select name='ville2' id='ville2' onchange='postale()'> <option>...</option><option>Archennes</option><option>Bornival</option></select>";
 		return true;
 	}
 	if (region == "f4") {
-		document.getElementById("ville").innerHTML = "<select name='ville2' id='ville2' onchange='postale()'> <option>Liège</option><option>Huy</option></select>";
+		document.getElementById("ville").innerHTML = "<select name='ville2' id='ville2' onchange='postale()'> <option>...</option><option>Liège</option><option>Huy</option></select>";
 		return true;
 	}
 	if (region == "f5") {
-		document.getElementById("ville").innerHTML = "<select name='ville2' id='ville2' onchange='postale()'> <option>Namur</option><option>Dinant</option></select>";
+		document.getElementById("ville").innerHTML = "<select name='ville2' id='ville2' onchange='postale()'> <option>...</option><option>Namur</option><option>Dinant</option></select>";
+		return true;
+	}
+	if (region == "f6") {
+		document.getElementById("ville").innerHTML = "<select name='ville2' id='ville2' onchange='postale()'> <option>...</option><option>Arlon</option><option>Bastogne</option></select>";
+		return true;
+	}
+	if (region == "f7") {
+		document.getElementById("ville").innerHTML = "<select name='ville2' id='ville2' onchange='postale()'> <option>...</option><option>Leuven</option><option>Affligem</option></select>";
+		return true;
+	}
+	if (region == "f8") {
+		document.getElementById("ville").innerHTML = "<select name='ville2' id='ville2' onchange='postale()'> <option>...</option><option>Anvers</option><option>Maline</option></select>";
 		return true;
 	}
 }
