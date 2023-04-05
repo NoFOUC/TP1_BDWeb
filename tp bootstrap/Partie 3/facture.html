@@ -1,175 +1,191 @@
 <html>
+	<head>
+		<!--<link rel="stylesheet" type="text/css" href="style.css">-->
+		<!--<script type="text/javascript" src="script.js"></script>-->
 
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" >
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css" integrity="sha256-XoaMnoYC5TH6/+ihMEnospgm0J1PM/nioxbOUdnM8HY=" crossorigin="anonymous">
-    <!-- <script type="text/javascript" src="code.js"></script> -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-</head>
+		<meta name="viewport" content="width=device-with, initial-scale=1" charset="utf-8">
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet">
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+        <title>facture, tp</title>
+    </head>
+	<body>
+		<div class="container-fluid text-center">
+		  <h1>Facture</h1>
+		  <p>Bienvenue chez Nous.</p>
+		</div>
 
-<body>
-    <div class="container-fluid">
-        <div class="header">
-            <h1>Facture</h1>
-            <p>Bienvenue chez Nous.</p>
-        </div>
-    </div>
-    <div class="container-fluid ">
-        <div></div>
-        <div class="topnav">
-            <a href="#">Link</a>
-            <a href="#">Link</a>
-            <a href="#">Link</a>
-        </div>
-    </div>
-    
-    <div class="row">
-        <div class="column side">
-            <h2>Fournisseur</h2>
-            <form action="#" method="post">
-                <fieldset>
-                    <legend> Fournisseur : ? </legend>
-                    <select>
-						  <option value="f1">Fournisseur 1</option>
-						  <option value="f2">Fournisseur 2</option>
-						  <option value="f3">Fournisseur 3</option>
-						  <option value="f4">Fournisseur 4</option>
-						</select>
-                </fieldset>
-            </form>
-        </div>
-        <div class="column middle">
-            <h2>Formulaire</h2>
-            <form action="#" method="post">
-                <fieldset>
-                    <legend> Information : ? </legend>
-                    <input type="radio" name="type" value="perso"> Personnel&nbsp;&nbsp;
-                    <input type="radio" name="type" value="prof"> Professionel<br>
-                    <br>
-                    <div id="tva">
-                        N° TVA:<br>
-                        <input type="text" name="tva"><br><br>
-                    </div>
-                    Prénom :<br>
-                    <input type="text" name="firstname"><br><br> Nom :<br>
-                    <input type="text" name="lastname">
-                    <br><br>
-                    <div id="gender">
-                    </div>
-                    Email :<br>
-                    <input type="text" name="mail">
-                    <br><br> N° Téléphone :<br>
-                    <input type="text" name="phone">
-                    <br><br> Adresse :<br>
-                    <input type="textarea" name="adresse">
-                    <br><br> Provinces :<br>
-                    <select name="region" id="region">
-							  <option value="">....</option>
-							  <option value="f2">Hainaut</option>
-							  <option value="f3">Brabant Wallon</option>
-							  <option value="f4">Liège</option>
-							  <option value="f5">Namur</option>
+		<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+
+					    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText">
+					      <span class="navbar-toggler-icon"></span>
+					    </button>
+
+				    	<div class="collapse navbar-collapse justify-content-end" id="navbarText">
+						    <ul class="navbar-nav">
+							  <li class="nav-item"><a href="#" class="nav-link ">Link</a></li>
+						      <li class="nav-item"><a href="#" class="nav-link ">Link</a></li>
+						      <li class="nav-item"><a href="#" class="nav-link ">Link</a></li>
+						  </ul>
+						</div>
+
+		</nav>
+		<br>
+		<div class="container-fluid">
+			<div class="card">
+				<div class="card-header"><h2>Fournisseur</h2></div>
+					<div class="card-body text-center">
+							<form action="#" method="post">
+								<fieldset>
+									<legend> Fournisseur : </legend>
+										<select>
+								  			<option value="f1">Fournisseur 1</option>
+											<option value="f2">Fournisseur 2</option>
+											<option value="f3">Fournisseur 3</option>
+											<option value="f4">Fournisseur 4</option>
+										</select>
+								</fieldset>
+							</form>
+
+					</div>
+
+			</div>
+
+			<div class="card">
+				<div class="card-header"><h2>Formulaire</h2></div>
+					<div class="card-body">
+						<form class="row g-3" ction="#" method="post"  onsubmit="return mfValidation(this)">
+
+							  <div class="col-md-6 justify-content-center">
+								   <br>
+									<label> Information  :  </label>
+										<input class="form-check-input"  type="radio" name="type" value="perso" onclick="personnel();"><label class="form-check-label">   Personnel&nbsp;&nbsp;</label>
+										<input class="form-check-input"  type="radio" name="type" value="prof" checked onclick="professionel();"> <label class="form-check-label"> Professionel</label>
+										<br>
+
+							</div>
+							  <div class="col-md-6">
+							    <label  class="form-label">N° TVA</label>
+							    <input type="text" class="form-control" name="tva">
+							  </div>
+							   <div class="col-md-6">
+							    <label  class="form-label">Prénom</label>
+							    <input type="text" class="form-control" name="firstname">
+							  </div>
+							   <div class="col-md-6">
+							    <label  class="form-label">Nom</label>
+							    <input type="text" class="form-control" name="name">
+							  </div>
+
+							  <div class="col-md-6">
+							    <label  class="form-label">Email</label>
+							    <input type="text" class="form-control" name="mail">
+							  </div>
+							  <div class="col-md-6">
+							    <label  class="form-label">Téléphone</label>
+							    <input type="text" class="form-control" name="phone">
+							  </div>
+							  <div class="col-12">
+							    <label  class="form-label">Adresse</label>
+							    <input type="textarea" class="form-control" name="adresse">
+							  </div>
+
+							  <div class="col-md-4">
+							    <label class="form-label">Province</label>
+							    <select id="region" name="region" class="form-select">
+							      <option value="">....</option>
+								  <option value="f2">Hainaut</option>
+								  <option value="f3">Brabant Wallon</option>
+								  <option value="f4">Liège</option>
+								  <option value="f4">Namur</option>
+
+							    </select>
+							  </div>
+
+
+							  <div class="col-md-6">
+							    <label class="form-label" name="Ville">Ville</label>
+							    <input type="text" class="form-control">
+							  </div>
+
+							  <div class="col-md-2">
+							    <label  class="form-label">Code Postal</label>
+							    <input type="text" class="form-control" name="code">
+							  </div>
+
+
+							  <div class="col-12">
+							    <button type="submit" class="btn btn-success">Envoyer</button>
+							    <button type="reset" class="btn btn-danger">Supprimer</button>
+							  </div>
+							</form>
+
+					</div>
+
+			</div>
+
+
+			<div class="card">
+				<div class="card-header"><h2>Paiement</h2></div>
+					<div class="card-body">
+						<form action="#" method="post">
+
+						<fieldset>
+							<div class="row g-3">
+							 <div class="col-md-6">
+
+
+								<legend> Paiement  :  </legend>
+								Propriétaire :
+								<input type="text" name="owner" style="width: 140px;"> <br><br>
+								CVV :
+								<input type="text" name="cvv" id="cvv"  style="width: 41px;"><br><br>
+
+							</div>
+
+							<div class="col-md-6">
+								Numéro de carte :<br><br>
+								<input type="text" name ="num_carte"><br><br>
+							Date expiration :<br><br>
+							<select name="month" style="width: 50px;">
+								<option></option>
+								<option>01</option>
+								<option>02</option>
+								<option>03</option>
+								<option>04</option>
+								<option>05</option>
+								<option>06</option>
+								<option>07</option>
+								<option>08</option>
+								<option>09</option>
+								<option>10</option>
+								<option>11</option>
+								<option>12</option>
 							</select>
-                    <br><br> Ville :<br>
-                    <div id="ville">
-                        <input type="text" name="Ville">
-                    </div>
-                    <br><br> Code postale :<br>
-                    <input type="text" name="code">
-                    <br><br>
-
-                    <br>
-                    <input type="submit" id="buttonsend"><input type="reset">
-                </fieldset>
-            </form>
-            <h2>Formulaire carte bancaire</h2>
-            <form action="#" method="post">
-                <fieldset>
-                    <legend> Information : ? </legend>
-                    <br>Nom<br>
-                    <input type="text" name="cb_name"><br>
-                    <br>Type de carte<br>
-                    <input type="text" name="cb_type"><br>
-                    <br>Numéro de carte<br>
-                    <input type="text" name="cb_n"><br>
-                    <br>CVV<br>
-                    <input type="text" name="cb_cvv"><br>
-                    <br>Date d'expiration<br>
-                    <input type="text" name="cb_expiration"><br>
-                    <br><br>
-                    <input type="submit" id="buttonsendcb"><input type="reset">
-                </fieldset>
-            </form>
-        </div>
-        <div class="column" id="info">
-            <h2>Les informations personnelles</h2>
-            <div class="list">
-            </div>
-        </div>
-        <div class="column" id="info_cb" style="padding-left: 2%">
-            <h2>Les informations bancaires</h2>
-            <div class="list">
-            </div>
-        </div>
+							<select name="year" style="width: 50px;">
+								<option></option>
+								<option>20</option>
+								<option>21</option>
+								<option>22</option>
+								<option>23</option>
+								<option>24</option>
+							</select>
+							<br><br>
 
 
-    </div>
+							</div>
+							</div>
+									 <button type="submit" class="btn btn-success">Envoyer</button>
+									 <button type="reset" class="btn btn-danger">Effacer </button>
+						</fieldset>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> 
-  	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-</body>
+						</form>
+
+					</div>
 
 
-<script>
-    count_cb = 0
-    $("#buttonsendcb").click(function(e) {
-        count_cb++
-        e.preventDefault();
-        var data = {
-            "name": $("input[name=cb_name]").val(),
-            "type": $("input[name=cb_type]").val(),
-            "number":$("input[name=cb_n]").val(),
-            "cvv":$("input[name=cb_cvv]").val(),
-            "expir":$("input[name=cb_expiration]").val(),
-        }
-        data = JSON.parse(JSON.stringify(data))
-        var tag = "<div class='tag_ cb_info'> <h3><span>".concat(
-            count_cb, " | ", data.name, "  ", data.expir, "</h3>",
-            "Estimation de l'expiration de la carte", "</div>"
-        )
-        $("#info_cb .list").prepend(tag)
-        $(".tag_").removeClass("new").first().addClass("new")
-        console.log(data)
-    })
-</script>
-
-<script>
-    count = 0
-    $("#buttonsend").click(function(e) {
-        count++
-        e.preventDefault();
-        var data = {
-            "type": $("input[name=type]:checked").val(),
-            "tva": $("input[name=tva]").val(),
-            "firstname": $("input[name=firstname]").val(),
-            "lastname": $("input[name=lastname]").val(),
-            "mail": $("input[name=mail]").val(),
-            "phone": $("input[name=phone]").val(),
-            "adresse": $("input[name=adresse]").val(),
-            "region": $("select[name=region]").val(),
-            "ville": $("input[name=Ville]").val(),
-            "code": $("input[name=code]").val(),
-        }
-        data = JSON.parse(JSON.stringify(data))
-        var tag = "<div class='tag_ cb_info' > <h3><span>".concat(count, " | </span>", data.type, " ", "<b>", data.firstname, " ", data.lastname, "</b>", "</h3>",
-            data.mail, " - ", data.phone, "<br/>", data.adresse, ", ", data.code, " ",
-            data.ville, " - ", data.region, "</div>")
-        $("#info .list").prepend(tag)
-        $(".tag_").removeClass("new").first().addClass("new")
-        console.log(data)
-    })
-</script>
-
+		</div>
+	</div>
+		<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.min.js"></script>
+	</body>
 </html>
