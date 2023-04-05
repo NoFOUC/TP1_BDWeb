@@ -1,0 +1,175 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" >
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css" integrity="sha256-XoaMnoYC5TH6/+ihMEnospgm0J1PM/nioxbOUdnM8HY=" crossorigin="anonymous">
+    <!-- <script type="text/javascript" src="code.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="header">
+            <h1>Facture</h1>
+            <p>Bienvenue chez Nous.</p>
+        </div>
+    </div>
+    <div class="container-fluid ">
+        <div></div>
+        <div class="topnav">
+            <a href="#">Link</a>
+            <a href="#">Link</a>
+            <a href="#">Link</a>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="column side">
+            <h2>Fournisseur</h2>
+            <form action="#" method="post">
+                <fieldset>
+                    <legend> Fournisseur : ? </legend>
+                    <select>
+						  <option value="f1">Fournisseur 1</option>
+						  <option value="f2">Fournisseur 2</option>
+						  <option value="f3">Fournisseur 3</option>
+						  <option value="f4">Fournisseur 4</option>
+						</select>
+                </fieldset>
+            </form>
+        </div>
+        <div class="column middle">
+            <h2>Formulaire</h2>
+            <form action="#" method="post">
+                <fieldset>
+                    <legend> Information : ? </legend>
+                    <input type="radio" name="type" value="perso"> Personnel&nbsp;&nbsp;
+                    <input type="radio" name="type" value="prof"> Professionel<br>
+                    <br>
+                    <div id="tva">
+                        N° TVA:<br>
+                        <input type="text" name="tva"><br><br>
+                    </div>
+                    Prénom :<br>
+                    <input type="text" name="firstname"><br><br> Nom :<br>
+                    <input type="text" name="lastname">
+                    <br><br>
+                    <div id="gender">
+                    </div>
+                    Email :<br>
+                    <input type="text" name="mail">
+                    <br><br> N° Téléphone :<br>
+                    <input type="text" name="phone">
+                    <br><br> Adresse :<br>
+                    <input type="textarea" name="adresse">
+                    <br><br> Provinces :<br>
+                    <select name="region" id="region">
+							  <option value="">....</option>
+							  <option value="f2">Hainaut</option>
+							  <option value="f3">Brabant Wallon</option>
+							  <option value="f4">Liège</option>
+							  <option value="f5">Namur</option>
+							</select>
+                    <br><br> Ville :<br>
+                    <div id="ville">
+                        <input type="text" name="Ville">
+                    </div>
+                    <br><br> Code postale :<br>
+                    <input type="text" name="code">
+                    <br><br>
+
+                    <br>
+                    <input type="submit" id="buttonsend"><input type="reset">
+                </fieldset>
+            </form>
+            <h2>Formulaire carte bancaire</h2>
+            <form action="#" method="post">
+                <fieldset>
+                    <legend> Information : ? </legend>
+                    <br>Nom<br>
+                    <input type="text" name="cb_name"><br>
+                    <br>Type de carte<br>
+                    <input type="text" name="cb_type"><br>
+                    <br>Numéro de carte<br>
+                    <input type="text" name="cb_n"><br>
+                    <br>CVV<br>
+                    <input type="text" name="cb_cvv"><br>
+                    <br>Date d'expiration<br>
+                    <input type="text" name="cb_expiration"><br>
+                    <br><br>
+                    <input type="submit" id="buttonsendcb"><input type="reset">
+                </fieldset>
+            </form>
+        </div>
+        <div class="column" id="info">
+            <h2>Les informations personnelles</h2>
+            <div class="list">
+            </div>
+        </div>
+        <div class="column" id="info_cb" style="padding-left: 2%">
+            <h2>Les informations bancaires</h2>
+            <div class="list">
+            </div>
+        </div>
+
+
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> 
+  	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+
+<script>
+    count_cb = 0
+    $("#buttonsendcb").click(function(e) {
+        count_cb++
+        e.preventDefault();
+        var data = {
+            "name": $("input[name=cb_name]").val(),
+            "type": $("input[name=cb_type]").val(),
+            "number":$("input[name=cb_n]").val(),
+            "cvv":$("input[name=cb_cvv]").val(),
+            "expir":$("input[name=cb_expiration]").val(),
+        }
+        data = JSON.parse(JSON.stringify(data))
+        var tag = "<div class='tag_ cb_info'> <h3><span>".concat(
+            count_cb, " | ", data.name, "  ", data.expir, "</h3>",
+            "Estimation de l'expiration de la carte", "</div>"
+        )
+        $("#info_cb .list").prepend(tag)
+        $(".tag_").removeClass("new").first().addClass("new")
+        console.log(data)
+    })
+</script>
+
+<script>
+    count = 0
+    $("#buttonsend").click(function(e) {
+        count++
+        e.preventDefault();
+        var data = {
+            "type": $("input[name=type]:checked").val(),
+            "tva": $("input[name=tva]").val(),
+            "firstname": $("input[name=firstname]").val(),
+            "lastname": $("input[name=lastname]").val(),
+            "mail": $("input[name=mail]").val(),
+            "phone": $("input[name=phone]").val(),
+            "adresse": $("input[name=adresse]").val(),
+            "region": $("select[name=region]").val(),
+            "ville": $("input[name=Ville]").val(),
+            "code": $("input[name=code]").val(),
+        }
+        data = JSON.parse(JSON.stringify(data))
+        var tag = "<div class='tag_ cb_info' > <h3><span>".concat(count, " | </span>", data.type, " ", "<b>", data.firstname, " ", data.lastname, "</b>", "</h3>",
+            data.mail, " - ", data.phone, "<br/>", data.adresse, ", ", data.code, " ",
+            data.ville, " - ", data.region, "</div>")
+        $("#info .list").prepend(tag)
+        $(".tag_").removeClass("new").first().addClass("new")
+        console.log(data)
+    })
+</script>
+
+</html>
