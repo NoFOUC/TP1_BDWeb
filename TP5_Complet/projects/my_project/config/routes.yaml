@@ -1,0 +1,33 @@
+controllers:
+    resource:
+        path: ../src/Controller/
+        namespace: App\Controller
+    type: attribute
+
+lucky:
+        path : /lucky/number
+        controller: App\Controller\MyController::number
+
+home:
+    path: home
+    controller: App\Controller\MyController::home
+
+articles:
+    path: articles
+    controller: App\Controller\MyController::articles
+
+number: 
+    path : /lucky/number
+    controller: App\Controller\MyController::number
+
+app_register:
+    path: register
+    controller: App\Controller\RegistrationController::register
+
+DetailsArticle:
+    path: DetailsArticle/{id}
+    controller: App\Controller\MyController::Detailsarticles
+
+RemoveArticle:
+    path: RemoveArticle/{id}
+    controller: App\Controller\MyController::Removearticle
