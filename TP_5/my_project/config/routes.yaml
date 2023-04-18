@@ -1,0 +1,17 @@
+controllers:
+    resource:
+        path: ../src/Controller/
+        namespace: App\Controller
+    type: attribute
+lucky:
+    path: /lucky/number
+    controller: App\Controller\MyController::number
+home:
+    path: home
+    controller: App\Controller\MyController::home
+articles:
+    path: articles
+    controller: App\Controller\MyController::articles
+app_register:
+    path: register
+    controller: App\Controller\RegistrationController::register
